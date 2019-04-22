@@ -22,3 +22,5 @@ plt.xlabel("Number of cluster")
 plt.ylabel("SSE")
 plt.show()
 fig.savefig('KmeansElbow.jpeg')
+
+#Help from https://stackoverflow.com/questions/19197715/scikit-learn-k-means-elbow-criterion
