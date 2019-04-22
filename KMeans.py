@@ -5,17 +5,15 @@ import matplotlib.pyplot as plt
 
 #import data
 iris = load_iris()
-X = pd.DataFrame(iris.data, columns=iris['feature_names'])
-#print(X)
-data = X[['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)']]
+names = pd.DataFrame(iris.data, columns=iris['feature_names'])
+data = names[['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)']]
 
 #optimum number of clusters
 sse = {}
-for k in range(1, 10):
-    kmeans = KMeans(n_clusters=k, max_iter=1000).fit(data)
+for i in range(1, 10):
+    kmeans = KMeans(n_clusters=i, max_iter=1000).fit(data)
     data["clusters"] = kmeans.labels_
-    #print(data["clusters"])
-    sse[k] = kmeans.inertia_ # Inertia: Sum of distances of samples to their closest cluster center
+    sse[i] = kmeans.inertia_
 
 #plotting figure
 fig = plt.figure()
